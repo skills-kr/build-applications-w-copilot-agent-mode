@@ -1,69 +1,69 @@
-## Step 3: Initialize and create the octofit_db MongoDB database, Django project/app, update Django project/app files, and populate the MongoDB database
+## Step 3: octofit_db MongoDB 데이터베이스 초기화 및 생성, Django 프로젝트/앱 구성, Django 프로젝트/앱 파일 업데이트, MongoDB 데이터베이스 채우기
 
 > [!NOTE]
-> **Behind the scenes:** This exercise uses custom instruction files that help guide GitHub Copilot's responses. The instruction files `.github/instructions/octofit_tracker_setup_project.instructions.md` and `.github/instructions/octofit_tracker_django_backend.instructions.md` contain Django backend guidelines, MongoDB configuration, and project structure that Copilot references when generating code for this step.
+> **비하인드 스토리:** 이 실습은 GitHub Copilot의 응답을 안내하는 커스텀 인스트럭션 파일을 사용합니다. 인스트럭션 파일 `.github/instructions/octofit_tracker_setup_project.instructions.md`와 `.github/instructions/octofit_tracker_django_backend.instructions.md`에는 Django 백엔드 가이드라인, MongoDB 구성, 프로젝트 구조가 포함되어 있으며 Copilot이 이 단계의 코드를 생성할 때 참조합니다.
 
-In this step, we will accomplish the following:
+이 단계에서 다음을 수행합니다:
 
-- Set up the octofit_db MongoDB database structure.
-- Update the octofit-tracker/backend/octofit_tracker app files:
-  - settings, models, serializers, urls, views, tests, and admin files.
-- Populate the octofit_db database with test data.
-- Verify the test data is populated in the octofit_db database.
+- octofit_db MongoDB 데이터베이스 구조를 설정합니다.
+- octofit-tracker/backend/octofit_tracker 앱 파일을 업데이트합니다:
+  - settings, models, serializers, urls, views, tests, admin 파일.
+- octofit_db 데이터베이스에 테스트 데이터를 채웁니다.
+- 테스트 데이터가 octofit_db 데이터베이스에 채워졌는지 확인합니다.
 
-Copy and paste the following prompt(s) in the GitHub Copilot Chat and select the "Agent" instead of "Ask" or "Edit" from the drop down where you are inserting the prompt.
+GitHub Copilot Chat에 다음 프롬프트를 복사하여 붙여넣고, 프롬프트를 입력하는 곳의 드롭다운에서 "Agent"를 "Ask" 또는 "Edit" 대신 선택합니다.
 
 > [!NOTE]
-> - Keep in mind that the Copilot agent mode is conversational so it may ask you questions and you can ask it questions too.
-> - Wait a moment for the Copilot to respond and press the `Continue` button to execute commands presented by Copilot agent mode.
-> - Keep files created and updated by Copilot agent mode until it is finished.
-> - Agent mode has the ability to evaluate your code base and execute commands and add/refactor/delete parts of your code base and automatically self heal if it or you makes a mistake in the process.
+> - Copilot 에이전트 모드는 대화형이므로 질문을 할 수 있고 여러분도 질문할 수 있습니다.
+> - Copilot이 응답할 때까지 잠시 기다린 후 Copilot 에이전트 모드가 제시하는 명령을 실행하려면 `Continue` 버튼을 누르세요.
+> - Copilot 에이전트 모드가 작업을 완료할 때까지 생성 및 업데이트된 파일을 유지하세요.
+> - 에이전트 모드는 코드베이스를 평가하고 명령을 실행하며, 코드베이스의 일부를 추가/리팩터링/삭제하고, 실수가 발생하면 자동으로 복구하는 능력을 가지고 있습니다.
 
-**Open up a new Copilot Chat session by hitting the plus `+` icon in the Copilot Chat pane.**
+**Copilot Chat 창의 `+` 아이콘을 눌러 새 Copilot Chat 세션을 엽니다.**
 
-### :keyboard: Activity: Setup the Python Django project/app
+### :keyboard: 활동: Python Django 프로젝트/앱 설정하기
 
-In this activity we will leverage a feature in VS Code called prompt files. A prompt file that has been created by the IT department for us to create our Django project application. Copy/paste the following prompt in the GitHub Copilot Chat and select the "Agent" instead of "Ask" or "Edit" from the drop down where you are inserting the prompt.
+이 활동에서는 VS Code의 프롬프트 파일 기능을 활용합니다. IT 부서에서 Django 프로젝트 애플리케이션을 생성하기 위한 프롬프트 파일이 이미 만들어져 있습니다. GitHub Copilot Chat에 다음 프롬프트를 복사/붙여넣기하고, 프롬프트를 입력하는 곳의 드롭다운에서 "Agent"를 "Ask" 또는 "Edit" 대신 선택합니다.
 
-What are prompt files?
+프롬프트 파일이란?
 
-Prompt files let you define reusable prompts for common and repeatable development tasks in a Markdown file.
-Prompt files are standalone prompts that you can run directly in chat. You can include task-specific context and guidelines about how the task should be performed.
-Combine prompt files with custom instructions to ensure consistent execution of complex tasks.
+프롬프트 파일을 사용하면 일반적이고 반복적인 개발 작업을 위한 재사용 가능한 프롬프트를 마크다운 파일로 정의할 수 있습니다.
+프롬프트 파일은 채팅에서 직접 실행할 수 있는 독립형 프롬프트입니다. 작업별 컨텍스트와 작업 수행 방법에 대한 가이드라인을 포함할 수 있습니다.
+프롬프트 파일을 커스텀 인스트럭션과 결합하여 복잡한 작업을 일관되게 실행할 수 있습니다.
 
-See the [VS Code Docs: Prompt Files](https://code.visualstudio.com/docs/copilot/customization/overview#_prompt-files) page for more information.
+자세한 내용은 [VS Code 문서: 프롬프트 파일](https://code.visualstudio.com/docs/copilot/customization/overview#_prompt-files) 페이지를 참고하세요.
 
-> ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=flat-square&logo=github%20copilot&labelColor=512a97&color=ecd8ff)
+> ![Static Badge](https://img.shields.io/badge/-프롬프트-text?style=flat-square&logo=github%20copilot&labelColor=512a97&color=ecd8ff)
 >
 > ```prompt
 > /create-django-project
 >```
 
 > [!NOTE]
-> - Wait a moment for the Copilot to respond and press the `Continue` button to execute each command presented by Copilot agent mode.
-> - Keep files created and updated until the Copilot agent mode has finished.
+> - Copilot이 응답할 때까지 잠시 기다린 후 Copilot 에이전트 모드가 제시하는 각 명령을 실행하려면 `Continue` 버튼을 누르세요.
+> - Copilot 에이전트 모드가 작업을 완료할 때까지 생성 및 업데이트된 파일을 유지하세요.
 
 > [!IMPORTANT]
-> - Don't start the Python Django app in the way that GitHub Copilot agent mode suggests hit **cancel** when you see this image.
+> - GitHub Copilot 에이전트 모드가 제안하는 방식으로 Python Django 앱을 시작하지 **마세요**. 아래 이미지가 보이면 **cancel**을 누르세요.
 
 <img src="https://github.com/user-attachments/assets/02a875c1-19a4-417b-ab03-aefbbe2186d4" width=50% height=50%>
 
-### :keyboard: Activity: Initialize, create, and populate the octofit_db MongoDB database
+### :keyboard: 활동: octofit_db MongoDB 데이터베이스 초기화, 생성, 채우기
 
-Let's continue to leverage a prompt file that has been created by the IT department for us to initialize and create the octofit_db MongoDB database. Copy/paste the following prompt in the GitHub Copilot Chat and select the "Agent" instead of "Ask" or "Edit" from the drop down where you are inserting the prompt.
+IT 부서에서 octofit_db MongoDB 데이터베이스를 초기화하고 생성하기 위해 만든 프롬프트 파일을 계속 활용합니다. GitHub Copilot Chat에 다음 프롬프트를 복사/붙여넣기하고, 프롬프트를 입력하는 곳의 드롭다운에서 "Agent"를 "Ask" 또는 "Edit" 대신 선택합니다.
 
-> ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=flat-square&logo=github%20copilot&labelColor=512a97&color=ecd8ff)
+> ![Static Badge](https://img.shields.io/badge/-프롬프트-text?style=flat-square&logo=github%20copilot&labelColor=512a97&color=ecd8ff)
 >
 > ```prompt
 >
 > /init-populate-octofit_db
 > ```
 
-### :keyboard: Activity: Let's create a prompt file that will update the Python Django project/app files
+### :keyboard: 활동: Python Django 프로젝트/앱 파일을 업데이트할 프롬프트 파일 만들기
 
-Now let's create a prompt file of our own that we can share with other staff to develop to build the octofit-tracker app. Copy/paste the following prompt in the GitHub Copilot Chat and select the "Agent" instead of "Ask" or "Edit" from the drop down where you are inserting the prompt.
+이제 다른 직원들과 공유하여 octofit-tracker 앱을 개발할 수 있는 프롬프트 파일을 직접 만들어 봅시다. GitHub Copilot Chat에 다음 프롬프트를 복사/붙여넣기하고, 프롬프트를 입력하는 곳의 드롭다운에서 "Agent"를 "Ask" 또는 "Edit" 대신 선택합니다.
 
-> ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=flat-square&logo=github%20copilot&labelColor=512a97&color=ecd8ff)
+> ![Static Badge](https://img.shields.io/badge/-프롬프트-text?style=flat-square&logo=github%20copilot&labelColor=512a97&color=ecd8ff)
 >
 > ```prompt
 > Let's add the following to a prompt file called `update-octofit-tracker-app.prompt.md` in the `.github/prompts` directory and add mode: 'agent' and model: GPT-4.1 to the prompt file.
@@ -78,17 +78,17 @@ Now let's create a prompt file of our own that we can share with other staff to 
 > ```
 
 > [!TIP]
-> Use prompt files to define repeatable tasks and workflows.
+> 프롬프트 파일을 사용하여 반복 가능한 작업과 워크플로우를 정의하세요.
 >
-> When writing prompts focus on **WHAT** needs to be done. You can reference instructions for the **HOW**.
+> 프롬프트를 작성할 때는 **무엇을** 해야 하는지에 집중하세요. **어떻게** 하는지는 인스트럭션을 참조할 수 있습니다.
 
-See the [VS Code Docs: Prompt Files](https://code.visualstudio.com/docs/copilot/customization/overview#_prompt-files) page for more information.
+자세한 내용은 [VS Code 문서: 프롬프트 파일](https://code.visualstudio.com/docs/copilot/customization/overview#_prompt-files) 페이지를 참고하세요.
 
-### :keyboard: Activity: Let's use the prompt file to update the Python Django project/app files
+### :keyboard: 활동: 프롬프트 파일을 사용하여 Python Django 프로젝트/앱 파일 업데이트하기
 
-Copy/paste the following prompt in the GitHub Copilot Chat and select the "Agent" instead of "Ask" or "Edit" from the drop down where you are inserting the prompt.
+GitHub Copilot Chat에 다음 프롬프트를 복사/붙여넣기하고, 프롬프트를 입력하는 곳의 드롭다운에서 "Agent"를 "Ask" 또는 "Edit" 대신 선택합니다.
 
-> ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=flat-square&logo=github%20copilot&labelColor=512a97&color=ecd8ff)
+> ![Static Badge](https://img.shields.io/badge/-프롬프트-text?style=flat-square&logo=github%20copilot&labelColor=512a97&color=ecd8ff)
 >
 > ```prompt
 > /update-octofit-tracker-app
@@ -96,24 +96,24 @@ Copy/paste the following prompt in the GitHub Copilot Chat and select the "Agent
 >
 
 > [!IMPORTANT]
-> - Don't start the Python Django app in the way that GitHub Copilot agent mode suggests hit **cancel** when you see this image.
+> - GitHub Copilot 에이전트 모드가 제안하는 방식으로 Python Django 앱을 시작하지 **마세요**. 아래 이미지가 보이면 **cancel**을 누르세요.
 
 <img src="https://github.com/user-attachments/assets/02a875c1-19a4-417b-ab03-aefbbe2186d4" width=50% height=50%>
 
-1. Now that we have created the database structure, updated our Django project files, and populated the database, let's check our changes into our `build-octofit-app` branch.
+1. 데이터베이스 구조를 만들고, Django 프로젝트 파일을 업데이트하고, 데이터베이스를 채웠으니, 변경사항을 `build-octofit-app` 브랜치에 체크인합니다.
 
-1. With our new changes complete, please **commit** and **push** the changes to GitHub.
+1. 새로운 변경사항이 완료되면 GitHub에 **커밋**하고 **푸시**합니다.
 
-1. Wait a moment for Mona to check your work, provide feedback, and share the next lesson so we can keep working!
+1. Mona가 작업을 확인하고 피드백을 제공하며 다음 레슨을 공유할 때까지 잠시 기다립니다!
 
 <details>
-<summary>Having trouble? 🤷</summary><br/>
+<summary>문제가 있나요? 🤷</summary><br/>
 
-If you don't get feedback, here are some things to check:
+피드백이 없다면 다음을 확인하세요:
 
-- Make sure your commit changes were made for the following files to the branch `build-octofit-app` and pushed/synchronized to GitHub:
+- `build-octofit-app` 브랜치에 다음 파일의 커밋 변경사항이 있고 GitHub에 푸시/동기화되었는지 확인하세요:
   - `octofit-tracker/backend/octofit_tracker/settings.py`
   - `octofit-tracker/backend/octofit_tracker/management/commands/populate_db.py`
-- If Mona found a mistake, simply make a correction and push your changes again. Mona will check your work as many times as needed.
+- Mona가 실수를 발견하면 수정하고 다시 푸시하세요. Mona는 필요한 만큼 여러 번 작업을 확인합니다.
 
 </details>

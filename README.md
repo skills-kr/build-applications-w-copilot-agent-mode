@@ -1,52 +1,54 @@
-# Build applications with GitHub Copilot agent mode
+# GitHub Copilot 에이전트 모드로 애플리케이션 빌드하기
 
 <!-- ![](../../actions/workflows/0-start-course.yml/badge.svg?branch=main) -->
 <img src="https://github.com/user-attachments/assets/1b3ea5df-f18d-4ed8-9ae6-f96dc1861818" alt="octofit-tracker" width="300"/>
 
-_Build an application with GitHub Copilot agent mode in less than an hour._
+_1시간 이내에 GitHub Copilot 에이전트 모드로 애플리케이션을 빌드해 보세요._
 
-## Welcome
+## 환영합니다
 
-People love how GitHub Copilot helps them write code faster and with fewer errors.
-But what if GitHub could create a multi-tier application with a presentation, logic, and data layers based on requirements written in natural language?
-In this exercise, we will prompt GitHub Copilot agent mode to create a complete application.
+GitHub Copilot이 더 빠르고 오류 없이 코드를 작성하도록 도와주는 것을 많은 분들이 좋아합니다.
+하지만 자연어로 작성된 요구사항을 바탕으로 프레젠테이션, 로직, 데이터 레이어를 갖춘 다중 계층 애플리케이션을 GitHub가 만들어 줄 수 있다면 어떨까요?
+이 실습에서는 GitHub Copilot 에이전트 모드를 활용하여 완전한 애플리케이션을 만들어 봅니다.
 
-- **Who is this for**: Intermediate developers familiar with GitHub Copilot, basic GitHub, and basic web development
-- **What you'll learn**: We'll introduce GitHub Copilot agent mode and how to use it for application development.
-- **What you'll build**: You'll use GitHub Copilot agent mode to create a fitness application as the gym teacher of a high school.
-- **Prerequisites**: Skills Exercise: <a href="https://github.com/skills/getting-started-with-github-copilot">Getting Started with GitHub Copilot</a>.
-- **How long**: This course takes less than one hour to complete.
+- **대상**: GitHub Copilot, 기본 GitHub, 기본 웹 개발에 익숙한 중급 개발자
+- **배울 내용**: GitHub Copilot 에이전트 모드와 이를 애플리케이션 개발에 활용하는 방법을 소개합니다.
+- **만들 것**: GitHub Copilot 에이전트 모드를 사용하여 고등학교 체육 교사로서 피트니스 애플리케이션을 만듭니다.
+- **사전 요구사항**: Skills 실습: <a href="https://github.com/skills/getting-started-with-github-copilot">GitHub Copilot 시작하기</a>.
+- **소요 시간**: 이 실습은 1시간 이내에 완료할 수 있습니다.
 
-In this exercise, you will:
+이 실습에서 다음을 수행합니다:
 
-1. Start up a preconfigured development environment for making a multi-tier application.
-1. Prompt in GitHub Copilot Chat and select the edit tab and select agent mode from the edit/agent drop-down.
-1. In this exercise I primarily used the latest default LLM.
-1. Try other LLM models to see other output.
-1. For each step open up a new Copilot Chat session by hitting the plus `+` icon in the Copilot Chat pane.
+1. 다중 계층 애플리케이션 제작을 위해 미리 구성된 개발 환경을 시작합니다.
+1. GitHub Copilot Chat에서 프롬프트를 입력하고, 편집 탭을 선택한 후 편집/에이전트 드롭다운에서 에이전트 모드를 선택합니다.
+1. 이 실습에서는 주로 최신 기본 LLM을 사용했습니다.
+1. 다른 LLM 모델을 사용해 다른 출력을 확인해 보세요.
+1. 각 단계마다 Copilot Chat 창의 `+` 아이콘을 눌러 새 Copilot Chat 세션을 엽니다.
 
-### How to start this exercise
+### 이 실습을 시작하는 방법
 
-Simply copy the exercise to your account, then give your favorite Octocat (Mona) **about 20 seconds** to prepare the first lesson, then **refresh the page**.
+실습을 자신의 계정으로 복사한 후, 좋아하는 Octocat(Mona)에게 **약 20초** 정도 첫 번째 레슨을 준비할 시간을 주고 **페이지를 새로고침**하세요.
 
-[![](https://img.shields.io/badge/Copy%20Exercise-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)](https://github.com/new?template_owner=skills&template_name=build-applications-w-copilot-agent-mode&owner=%40me&name=skills-build-applications-w-copilot-agent-mode&description=Exercise:+Build+applications+with+GitHub+Copilot+agent+mode&visibility=public)
+[![](https://img.shields.io/badge/실습%20복사-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)](https://github.com/new?template_owner=skills-kr&template_name=build-applications-w-copilot-agent-mode&owner=%40me&name=skills-build-applications-w-copilot-agent-mode&description=Exercise:+Build+applications+with+GitHub+Copilot+agent+mode&visibility=public)
 
 <details>
-<summary>Having trouble? 🤷</summary><br/>
+<summary>문제가 있나요? 🤷</summary><br/>
 
-When copying the exercise, we recommend the following settings:
+실습을 복사할 때 다음 설정을 권장합니다:
 
-- For owner, choose your personal account or an organization to host the repository.
+- 소유자(owner)는 개인 계정 또는 저장소를 호스팅할 조직을 선택하세요.
 
-- We recommend creating a public repository, since private repositories will use Actions minutes.
+- 공개 저장소로 만드는 것을 권장합니다. 비공개 저장소는 Actions 사용 시간을 소모합니다.
 
-If the exercise isn't ready in 20 seconds, please check the "Actions" tab of your repository (or visit `https://github.com/<YOUR-USERNAME>/<YOUR-REPO>/actions`).
+20초 후에도 실습이 준비되지 않았다면, 저장소의 "Actions" 탭을 확인해 주세요 (또는 `https://github.com/<YOUR-USERNAME>/<YOUR-REPO>/actions`를 방문).
 
-- Check to see if a job is running. Sometimes it simply takes a bit longer.
+- 작업이 실행 중인지 확인하세요. 때로는 조금 더 시간이 걸릴 수 있습니다.
 
-- If the page shows a failed job, please submit an issue. Nice, you found a bug! 🐛
+- 페이지에 실패한 작업이 표시되면, 이슈를 제출해 주세요. 버그를 발견했네요! 🐛
 
 </details>
+
+> **참고**: 이 실습은 [skills/build-applications-w-copilot-agent-mode](https://github.com/skills/build-applications-w-copilot-agent-mode)를 기반으로 한글화하고, [🏆 GitHub Skills Workshop Dashboard](https://github-skills.studydev.com)와 연계되어 있습니다.
 
 ---
 

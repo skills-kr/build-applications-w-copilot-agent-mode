@@ -1,12 +1,12 @@
-## Step 5: Setup the frontend React framework, update the components, and start OctoFit Tracker app
+## Step 5: 프론트엔드 React 프레임워크 설정, 컴포넌트 업데이트, OctoFit Tracker 앱 시작
 
 > [!NOTE]
-> **Behind the scenes:** This exercise uses custom instruction files that help guide GitHub Copilot's responses. The instruction file `.github/instructions/octofit_tracker_react_frontend.instructions.md` contains React framework setup commands, Bootstrap integration, and frontend structure guidelines that Copilot references when generating code for this step.
+> **비하인드 스토리:** 이 실습은 GitHub Copilot의 응답을 안내하는 커스텀 인스트럭션 파일을 사용합니다. 인스트럭션 파일 `.github/instructions/octofit_tracker_react_frontend.instructions.md`에는 React 프레임워크 설정 명령, Bootstrap 통합, 프론트엔드 구조 가이드라인이 포함되어 있으며 Copilot이 이 단계의 코드를 생성할 때 참조합니다.
 
-In this step, we will accomplish the following:
+이 단계에서 다음을 수행합니다:
 
-- Setup the octofit-tracker frontend React framework.
-- Update the following components to include the React framework:
+- octofit-tracker 프론트엔드 React 프레임워크를 설정합니다.
+- 다음 컴포넌트를 React 프레임워크에 맞게 업데이트합니다:
   - src/App.js
   - src/index.js
   - src/components/Activities.js
@@ -14,21 +14,21 @@ In this step, we will accomplish the following:
   - src/components/Teams.js
   - src/components/Users.js
   - src/components/Workouts.js
-- Start the React app and check the output.
+- React 앱을 시작하고 출력을 확인합니다.
 
-Copy and paste the following prompt(s) in the GitHub Copilot Chat and select the "Agent" instead of "Ask" or "Edit" from the drop down where you are inserting the prompt.
+GitHub Copilot Chat에 다음 프롬프트를 복사하여 붙여넣고, 프롬프트를 입력하는 곳의 드롭다운에서 "Agent"를 "Ask" 또는 "Edit" 대신 선택합니다.
 
 > [!NOTE]
-> - Keep in mind that the Copilot agent mode is conversational so it may ask you questions and you can ask it questions too.
-> - Wait a moment for the Copilot to respond and press the continue button to execute commands presented by Copilot agent mode.
-> - Keep files created and updated by Copilot agent mode until it is finished.
-> - Agent mode has the ability to evaluate your code base and execute commands and add/refactor/delete parts of your code base and automatically self heal if it or you makes a mistake in the process.
+> - Copilot 에이전트 모드는 대화형이므로 질문을 할 수 있고 여러분도 질문할 수 있습니다.
+> - Copilot이 응답할 때까지 잠시 기다린 후 Copilot 에이전트 모드가 제시하는 명령을 실행하려면 Continue 버튼을 누르세요.
+> - Copilot 에이전트 모드가 작업을 완료할 때까지 생성 및 업데이트된 파일을 유지하세요.
+> - 에이전트 모드는 코드베이스를 평가하고 명령을 실행하며, 코드베이스의 일부를 추가/리팩터링/삭제하고, 실수가 발생하면 자동으로 복구하는 능력을 가지고 있습니다.
 
-**Open up a new Copilot Chat session by hitting the plus `+` icon in the Copilot Chat pane.**
+**Copilot Chat 창의 `+` 아이콘을 눌러 새 Copilot Chat 세션을 엽니다.**
 
-### :keyboard: Activity: Install the octofit-tracker frontend React framework
+### :keyboard: 활동: octofit-tracker 프론트엔드 React 프레임워크 설치
 
-> ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=flat-square&logo=github%20copilot&labelColor=512a97&color=ecd8ff)
+> ![Static Badge](https://img.shields.io/badge/-프롬프트-text?style=flat-square&logo=github%20copilot&labelColor=512a97&color=ecd8ff)
 >
 > ```prompt
 > Let's setup the octofit-tracker frontend React  framework and
@@ -41,9 +41,9 @@ Copy and paste the following prompt(s) in the GitHub Copilot Chat and select the
 > 5. Don't change .gitignore file
 >```
 
-### :keyboard: Activity: Update the octofit-tracker frontend React components
+### :keyboard: 활동: octofit-tracker 프론트엔드 React 컴포넌트 업데이트
 
-> ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=flat-square&logo=github%20copilot&labelColor=512a97&color=ecd8ff)
+> ![Static Badge](https://img.shields.io/badge/-프롬프트-text?style=flat-square&logo=github%20copilot&labelColor=512a97&color=ecd8ff)
 >
 > ```prompt
 > Let's update the octofit-tracker frontend React components.
@@ -69,27 +69,27 @@ Copy and paste the following prompt(s) in the GitHub Copilot Chat and select the
 > - Add console.log statements to each component to log the fetched data and the REST API endpoints.
 > ```
 
-### :keyboard: Activity: Start the react app and check the output
+### :keyboard: 활동: React 앱 시작 및 출력 확인
 
-Now, let's actually try running the react application! In the left sidebar, select the `Run and Debug` tab and then press the **Start Debugging** icon.
+이제 React 애플리케이션을 실제로 실행해 봅시다! 왼쪽 사이드바에서 `Run and Debug` 탭을 선택한 후 **Start Debugging** 아이콘을 누릅니다.
 
 <img alt="Run React Frontend" src="https://github.com/user-attachments/assets/b76a8e82-8435-4cbd-9540-8143756d1c60"  width=30% height=30%>
 
-Go to the running React Frontend url that pops up for port 3000 that looks like the following:
+포트 3000에 대한 React Frontend URL 팝업으로 이동합니다:
 
 <img alt="react-frontend-port" src="https://github.com/user-attachments/assets/a0c8b213-ee5f-46dd-8675-686a7ba0818f" width=30% height=30%>
 
-Once you open it in your web browser you will get a warning like the following:
+웹 브라우저에서 열면 다음과 같은 경고가 표시됩니다:
 
 <img alt="django-rest-api" src="https://github.com/user-attachments/assets/cb52d137-e78d-440b-8e9c-c322d7c49b48" width=30% height=30%>
 
-Once you click `Continue` it should look similar the following:
+`Continue`를 클릭하면 다음과 비슷하게 표시됩니다:
 
 <img alt="react-frontend-app" src="https://github.com/user-attachments/assets/f7f1a076-c259-49f6-8aa5-9ebcd5f0698d" width=50% height=50%>
 
-### :keyboard: Activity: Let's add some formatting, structuring, and styling to the octofit tracker app
+### :keyboard: 활동: OctoFit Tracker 앱에 포맷팅, 구조화, 스타일링 추가하기
 
-> ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=flat-square&logo=github%20copilot&labelColor=512a97&color=ecd8ff)
+> ![Static Badge](https://img.shields.io/badge/-프롬프트-text?style=flat-square&logo=github%20copilot&labelColor=512a97&color=ecd8ff)
 >
 > ```prompt
 > Let's style this like App.css and make it look nice.
@@ -106,9 +106,9 @@ Once you click `Continue` it should look similar the following:
 >   - Consistent table layouts for all components data.
 >```
 
-### :keyboard: Optional Activity: Let's make the octofit tracker app look nice, pretty, and add some color
+### :keyboard: 선택 활동: OctoFit Tracker 앱을 예쁘게 꾸미고 색상 추가하기
 
-> ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=flat-square&logo=github%20copilot&labelColor=512a97&color=ecd8ff)
+> ![Static Badge](https://img.shields.io/badge/-프롬프트-text?style=flat-square&logo=github%20copilot&labelColor=512a97&color=ecd8ff)
 >
 > ```prompt
 > Let's style this like App.css and make it look nice.
@@ -125,28 +125,28 @@ Once you click `Continue` it should look similar the following:
 > - Add a favicon to the app and make it look nice.
 >```
 
-### :keyboard: Optional Activity: Iterate on the appearance and try different models
+### :keyboard: 선택 활동: 외관을 반복 개선하고 다른 모델 사용해 보기
 
 > [!TIP]
-> - Try creating your own prompts to change the application appearance, add features, and try different models.
+> - 직접 프롬프트를 작성하여 앱의 외관을 변경하고, 기능을 추가하며, 다른 모델을 사용해 보세요.
 
-1. Now that we have created the React frontend for all application components, let's check our changes in to our `build-octofit-app` branch.
+1. 모든 애플리케이션 컴포넌트의 React 프론트엔드를 만들었으니, 변경사항을 `build-octofit-app` 브랜치에 체크인합니다.
 
-1. With our new changes complete, please **commit** and **push** the changes to the `build-octofit-app` branch.
+1. 새로운 변경사항이 완료되면 `build-octofit-app` 브랜치에 **커밋**하고 **푸시**합니다.
 
-1. Wait a moment for Mona to check your work, provide feedback, and share the next lesson so we can keep working!
+1. Mona가 작업을 확인하고 피드백을 제공하며 다음 레슨을 공유할 때까지 잠시 기다립니다!
 
 <details>
-<summary>Having trouble? 🤷</summary><br/>
+<summary>문제가 있나요? 🤷</summary><br/>
 
-If you don't get feedback, here are some things to check:
+피드백이 없다면 다음을 확인하세요:
 
-- Make sure your commit changes were made for the following files to the branch `build-octofit-app` and pushed/synchronized to GitHub:
-  - `octofit-tracker/frontend/src/components/Activities.js` and it contains `-8000.app.github.dev/api/activities/`
-  - `octofit-tracker/frontend/src/components/Leaderboard.js` and it contains `-8000.app.github.dev/api/leaderboard/`
-  - `octofit-tracker/frontend/src/components/Teams.js` and it contains `-8000.app.github.dev/api/teams/`
-  - `octofit-tracker/frontend/src/components/Users.js` and it contains `-8000.app.github.dev/api/users/`
-  - `octofit-tracker/frontend/src/components/Workouts.js` and it contains `-8000.app.github.dev/api/workouts/`
-- If Mona found a mistake, simply make a correction and push your changes again. Mona will check your work as many times as needed.
+- `build-octofit-app` 브랜치에 다음 파일의 커밋 변경사항이 있고 GitHub에 푸시/동기화되었는지 확인하세요:
+  - `octofit-tracker/frontend/src/components/Activities.js`에 `-8000.app.github.dev/api/activities/`가 포함
+  - `octofit-tracker/frontend/src/components/Leaderboard.js`에 `-8000.app.github.dev/api/leaderboard/`가 포함
+  - `octofit-tracker/frontend/src/components/Teams.js`에 `-8000.app.github.dev/api/teams/`가 포함
+  - `octofit-tracker/frontend/src/components/Users.js`에 `-8000.app.github.dev/api/users/`가 포함
+  - `octofit-tracker/frontend/src/components/Workouts.js`에 `-8000.app.github.dev/api/workouts/`가 포함
+- Mona가 실수를 발견하면 수정하고 다시 푸시하세요. Mona는 필요한 만큼 여러 번 작업을 확인합니다.
 
 </details>

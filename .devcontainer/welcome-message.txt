@@ -1,4 +1,4 @@
-👋 Welcome to building a multi-tier fitness tracker application with GitHub Copilot agent mode! 
-We are thrilled that you are here and we hope you are excited to explore the capabilities of Copilot!
-🏋🏽🔥💪🏼🎧 As the gym teacher of Mergington High School you have been tasked with building a fitness app for your students.
-📃 GitHub Copilot documentation: https://docs.github.com/en/copilot
+👋 GitHub Copilot 에이전트 모드로 다중 계층 피트니스 트래커 앱을 빌드하는 실습에 오신 것을 환영합니다!
+Copilot의 기능을 탐색하게 되어 정말 기쁩니다!
+🏋🏽🔥💪🏼🎧 Mergington 고등학교의 체육 교사로서 학생들을 위한 피트니스 앱을 만드는 임무를 받았습니다.
+📃 GitHub Copilot 문서: https://docs.github.com/en/copilot
